@@ -27,11 +27,13 @@
             font-weight: 700;
         }
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://manzvador.github.io/assets/img/bfbafdf6fecb5e540685689ee4a72e5d74e0dddf.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            min-height: 100vh;
+            min-height: 65vh;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
         }
         .wood-divider {
             height: 2px;
@@ -88,6 +90,16 @@
             border-radius: 4px;
             text-align: center;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .poi img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #0002;
         }
         .masonry {
             columns: 3 250px;
@@ -209,11 +221,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero flex items-center justify-center text-center text-white">
+    <section id="hero" class="hero flex items-center justify-center text-center text-white" style="min-height:65vh; padding-top:3rem; padding-bottom:3rem;">
         <div class="max-w-4xl mx-auto px-4 fade-in">
             <h1 class="text-5xl md:text-6xl font-bold mb-6">Auberge de la Saine</h1>
-            <p class="text-xl md:text-2xl mb-8">Votre futur restaurant au cœur du Haut-Jura – +9,3 M de nuitées touristiques / an dans le département</p>
-            <a href="#contact" class="cta">Recevoir le dossier complet</a>
+            <p class="text-xl md:text-2xl mb-8">
+                Votre futur restaurant au cœur du Haut-Jura<br>
+                <span class="block">+9,3 M de nuitées touristiques / an dans le département</span>
+            </p>
+            <a href="#contact" class="cta">Demander plus d'informations</a>
         </div>
     </section>
 
@@ -230,28 +245,65 @@
                     <ul class="space-y-4 text-lg">
                         <li class="flex items-start">
                             <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
-                            <span>70 couverts en salle</span>
+                            <span><strong>Salle de restaurant</strong> : 45 couverts</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
-                            <span>24 couverts terrasse couverte</span>
+                            <span><strong>Salle de bar indépendante</strong> : 20 couverts</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
-                            <span>Licence IV</span>
+                            <span><strong>Terrasse</strong> : 20 places</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
-                            <span>Cuisine pro inox rénovée 2019</span>
+                            <span>Cave à vin (140 bouteilles)</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
-                            <span>Note moyenne : 4,5 / 5 (Google & TripAdvisor)</span>
+                            <span>Cuisine professionnelle inox Thirode aménagée et équipée (rénovée 2019)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
+                            <span>Réserve avec vivier autonome, épicerie sèche, local, cave et bureau</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
+                            <span>
+                                <strong>Note moyenne&nbsp;: 4,5 / 5</strong>
+                                <span class="inline-flex items-center ml-2 align-middle">
+                                    <i class="fas fa-star" style="color:#FFD700;font-size:1.2em;margin-right:2px;"></i>
+                                    <i class="fas fa-star" style="color:#FFD700;font-size:1.2em;margin-right:2px;"></i>
+                                    <i class="fas fa-star" style="color:#FFD700;font-size:1.2em;margin-right:2px;"></i>
+                                    <i class="fas fa-star" style="color:#FFD700;font-size:1.2em;margin-right:2px;"></i>
+                                    <i class="fas fa-star-half-alt" style="color:#FFD700;font-size:1.2em;margin-right:2px;"></i>
+                                </span><br>
+                                <span class="inline-flex items-center mt-1">
+                                    <a href="https://www.google.com/search?hl=fr-FR&q=Auberge%20de%20la%20Saine" target="_blank" rel="noopener" style="margin-right:0.75em;vertical-align:middle;">
+                                        <i class="fab fa-google" style="font-size:1.5em;color:#4285F4;vertical-align:middle;"></i> Avis Google
+                                    </a>
+                                    <span style="font-size:1.2em; color:#888; margin:0 0.5em;">|</span>
+                                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g1210650-d13238981-Reviews-Auberge_de_la_Saine-Foncine_le_Haut_Jura_Bourgogne_Franche_Comte.html" target="_blank" rel="noopener" style="vertical-align:middle;">
+                                        <span style="display:inline-block;width:1.5em;height:1.5em;vertical-align:middle;margin-right:0.2em;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:100%;height:100%;">
+                                                <circle cx="256" cy="256" r="256" fill="#34E0A1"/>
+                                                <ellipse cx="168" cy="256" rx="56" ry="56" fill="#fff"/>
+                                                <ellipse cx="344" cy="256" rx="56" ry="56" fill="#fff"/>
+                                                <circle cx="168" cy="256" r="24" fill="#000"/>
+                                                <circle cx="344" cy="256" r="24" fill="#000"/>
+                                                <ellipse cx="256" cy="256" rx="32" ry="16" fill="#fff"/>
+                                                <ellipse cx="256" cy="256" rx="16" ry="8" fill="#000"/>
+                                            </svg>
+                                        </span>
+                                        Avis TripAdvisor
+                                    </a>
+                                </span>
+                            </span>
                         </li>
                     </ul>
                 </div>
                 <div class="md:w-1/2 fade-in">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                    <img src="https://manzvador.github.io/assets/img/SallePrincipale.jpg" 
                          alt="Salle de restaurant" 
                          class="rounded-lg shadow-xl w-full h-auto"
                          loading="lazy">
@@ -332,20 +384,34 @@
             
             <div class="max-w-3xl mx-auto text-center mb-10 fade-in">
                 <p class="text-lg">
-                    Parc Naturel Régional du Haut-Jura • Station nordique (906-1052 m) • Randonnée, VTT, ski, canoë.<br>
+                    Parc Naturel Régional du Haut-Jura • Station nordique (906-1052 m) • Randonnée, VTT, ski, canoë.
+                </p>
+                <p class="text-lg">
                     77 km de Genève – 82 km de Lausanne : clientèle transfrontalière en hausse de <strong>+7 %</strong> en 2023.
                 </p>
             </div>
             
             <div class="poi-grid max-w-4xl mx-auto fade-in">
-                <div class="poi">Gorges de la Langouette – 4 km</div>
-                <div class="poi">Cascades du Hérisson – 18 km</div>
-                <div class="poi">UNESCO Grande Saline – 28 km</div>
-                <div class="poi">Domaine des Rousses – 34 km</div>
+                <div class="poi flex items-center gap-3">
+                    <img src="https://manzvador.github.io/assets/img/langouette.jpg" alt="Gorges de la Langouette" style="width:48px;height:48px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px #0002;">
+                    <span>Gorges de la Langouette – 4 km</span>
+                </div>
+                <div class="poi flex items-center gap-3">
+                    <img src="https://manzvador.github.io/assets/img/herisson.jpg" alt="Cascades du Hérisson" style="width:48px;height:48px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px #0002;">
+                    <span>Cascades du Hérisson – 18 km</span>
+                </div>
+                <div class="poi flex items-center gap-3">
+                    <img src="https://manzvador.github.io/assets/img/saline.jpg" alt="UNESCO Grande Saline" style="width:48px;height:48px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px #0002;">
+                    <span>UNESCO Grande Saline – 28 km</span>
+                </div>
+                <div class="poi flex items-center gap-3">
+                    <img src="https://manzvador.github.io/assets/img/rousses.jpg" alt="Domaine des Rousses" style="width:48px;height:48px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px #0002;">
+                    <span>Domaine des Rousses – 34 km</span>
+                </div>
             </div>
             
             <div class="mt-10 fade-in">
-                <img src="https://cdn-lfs-us-1.hf.co/repos/30/e1/30e1e749d87883f65af344a33f7ebad86eafddff9dd1640a2b6360f21f4b447f/2d215bb762abe52e8ab9948d5a6f8553ae2189aa3f05efb3b403316a85638d0a?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27transjubruno-ferrandez-1193x0.jpg%3B+filename%3D%22transjubruno-ferrandez-1193x0.jpg%22%3B&response-content-type=image%2Fjpeg&Expires=1744981198&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0NDk4MTE5OH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy11cy0xLmhmLmNvL3JlcG9zLzMwL2UxLzMwZTFlNzQ5ZDg3ODgzZjY1YWYzNDRhMzNmN2ViYWQ4NmVhZmRkZmY5ZGQxNjQwYTJiNjM2MGYyMWY0YjQ0N2YvMmQyMTViYjc2MmFiZTUyZThhYjk5NDhkNWE2Zjg1NTNhZTIxODlhYTNmMDVlZmIzYjQwMzMxNmE4NTYzOGQwYT9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPSomcmVzcG9uc2UtY29udGVudC10eXBlPSoifV19&Signature=c1F5YIHveqDzVFan5D06GUpiZ7HYVjMoGygVWN3XuymGMmp97mDaudPQAw39JKsNFLSvNvL8c%7EmvvpgFf7vbv25I3RhsBys%7EsAL86cpB9l19q7Gm8uLlF97lfME9yNZXHR3w3jSHyFM8vQgKr2QOB%7EPB5ezIRWJNMOdPJZ3xGxzFdDfAhlA3Kb0ii4tSPu7pip0WWsEoZc9itVze3RDBVzWwcDZRmD1ZhyFVbisPa5HO6FfVBB8qP4EgVyr0CjeIIS-Oz4uA%7E41q6PxFQ8bTXUcCRMmNdbblunYM8YWjaJtoooNA1sevsu755-mQh9C1xFK%7EwjrfjOPn0YcJwBBm6w__&Key-Pair-Id=K24J24Z295AEI9&auto=format&fit=crop&w=1476&q=80" 
+                <img src="https://manzvador.github.io/assets/img/transjubruno-ferrandez-1193x0.jpg" 
                      alt="Ski de fond" 
                      class="rounded-lg shadow-xl w-full h-auto max-w-4xl mx-auto"
                      loading="lazy">
@@ -365,26 +431,29 @@
                 <ul class="space-y-4 text-lg mb-10">
                     <li class="flex items-start">
                         <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
-                        <span>Outil prêt à exploiter, aucune dette.</span>
+                        <span><strong>Clientèle touristique et frontalière solide</strong> : +9,3 M nuitées/an dans le Jura, clientèle suisse en hausse (+7 % en 2023, proximité Genève/Lausanne), forte fréquentation 4 saisons (ski, outdoor, évènements).</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
-                        <span>Clientèle 4 saisons : ski nordique l'hiver, outdoor l'été.</span>
+                        <span><strong>Zone de Revitalisation Rurale (ZRR)</strong> : exonération totale d'impôt 5 ans pour une reprise (PME &lt; 50 salariés, &lt;= 10 M € CA, avant le 31/12/2026).</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
-                        <span>Exonération fiscale ZRR : 0 % IS pendant 5 ans.</span>
+                        <span><strong>Prêt Région BFC</strong> : avance remboursable à taux 0 jusqu'à 80 000 € pour la reprise de restaurants (établissements non hôteliers éligibles sur dérogation ou classement « auberge de pays »).</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
-                        <span>Aide Région BFC : prêt 0 % → 80 k€ + prime PCRTF 3 k€.</span>
+                        <span><strong>Prime PCRTF</strong> : minimum 3 000 € pour la reprise d’activités en territoire fragile, soumise à validation Initiative Jura et apport personnel.</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
-                        <span>Potentiel croissance : hébergement (gîtes), événements & groupes (capacité rare localement).</span>
+                        <span><strong>Commune classée touristique</strong> : ouvertures 7j/7 y compris dimanches & jours fériés (statut préfectoral à reconduire en mairie, valable 5 ans). Aucun quota horaire, sous réserve du respect de la convention collective CHR et déclaration DREETS pour le travail de nuit.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
+                        <span>Potentiel croissance : événements, groupes, développement traiteur, capacité rare localement (85 couverts int. + terrasse).</span>
                     </li>
                 </ul>
-                
                 <div class="text-center">
                     <a href="#contact" class="cta">Planifier une visite</a>
                 </div>
@@ -401,29 +470,84 @@
             </div>
             
             <div class="masonry fade-in">
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
-                         alt="Cuisine pro" 
-                         loading="lazy">
-                    <figcaption>Cuisine inox équipée</figcaption>
+                <figure style="width:100%; display:block;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width:100%;">
+                        <img src="https://manzvador.github.io/assets/img/SallePrincipale.jpg" 
+                             alt="Salle principale 1" 
+                             loading="lazy"
+                             style="width:100%; height:auto; object-fit:cover; grid-column: 1; grid-row: 1;"
+                             class="rounded-lg shadow-xl">
+                        <img src="https://manzvador.github.io/assets/img/afd9d3f02f5aaa75de35a84f93f825d4d1872362.jpg" 
+                             alt="Salle principale 2" 
+                             loading="lazy"
+                             style="width:100%; height:auto; object-fit:cover; grid-column: 2; grid-row: 1;"
+                             class="rounded-lg shadow-xl">
+                        <img src="https://manzvador.github.io/assets/img/9c7d71eb32ae5ab5f6d48f9140cb8c95f0a144f8.jpg" 
+                             alt="Salle principale 3" 
+                             loading="lazy"
+                             style="width:100%; height:auto; object-fit:cover; grid-column: 1 / span 2; grid-row: 2; justify-self: center;"
+                             class="rounded-lg shadow-xl">
+                    </div>
+                    <figcaption>Salle principale 45 couverts</figcaption>
                 </figure>
                 <figure>
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                    <img src="https://manzvador.github.io/assets/img/dc1145a274e61a3941360f3c6c8a330d284656e8.jpg" 
                          alt="Terrasse" 
-                         loading="lazy">
-                    <figcaption>Terrasse couverte 24 couverts</figcaption>
+                         loading="lazy"
+                         class="rounded-lg shadow-xl w-full h-auto">
+                    <figcaption>Terrasse couverte 20 couverts</figcaption>
                 </figure>
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a8e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" 
-                         alt="Spécialité jurassienne" 
-                         loading="lazy">
-                    <figcaption>Spécialité morilles & vin jaune</figcaption>
+                <figure style="width:100%; display:block;">
+                    <div style="display: flex; flex-direction: row; gap: 1rem; width:100%;">
+                        <img src="https://manzvador.github.io/assets/img/99abb8d9b018d3b48ea1ab4bba50f3ed1155cd16.jpg" 
+                             alt="Salle de bar 1" 
+                             loading="lazy"
+                             style="width:50%; height:auto; object-fit:cover;"
+                             class="rounded-lg shadow-xl">
+                        <img src="https://manzvador.github.io/assets/img/966802f56cff2d1556d023ff106f31a35ea9e320.jpg" 
+                             alt="Salle de bar 2" 
+                             loading="lazy"
+                             style="width:50%; height:auto; object-fit:cover;"
+                             class="rounded-lg shadow-xl">
+                    </div>
+                    <figcaption>Salle de bar 20 couverts</figcaption>
                 </figure>
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
-                         alt="Salle de restaurant" 
-                         loading="lazy">
-                    <figcaption>Salle principale 70 couverts</figcaption>
+                <figure style="width:100%; display:block;">
+                    <div style="display: flex; flex-direction: row; gap: 1rem; width:100%;">
+                        <img src="https://manzvador.github.io/assets/img/e9b1fe62c18b1dd844a16faa37c0036311444fbb.jpg" 
+                             alt="Appartement T5 1" 
+                             loading="lazy"
+                             style="width:50%; height:auto; object-fit:cover;"
+                             class="rounded-lg shadow-xl">
+                        <img src="https://manzvador.github.io/assets/img/d99b8c0303fed7dceffdcafaed73956e8597a1b1.jpg" 
+                             alt="Appartement T5 2" 
+                             loading="lazy"
+                             style="width:50%; height:auto; object-fit:cover;"
+                             class="rounded-lg shadow-xl">
+                    </div>
+                    <div style="display: flex; flex-direction: row; justify-content: center; margin-top: 1rem; width:100%;">
+                        <img src="https://manzvador.github.io/assets/img/5759495bc5fcbcf39512f42df66d45013da73b48.jpg" 
+                             alt="Appartement T5 3" 
+                             loading="lazy"
+                             style="width:50%; max-width:400px; height:auto; object-fit:cover;"
+                             class="rounded-lg shadow-xl">
+                    </div>
+                    <figcaption>Appartement T5 140m² avec jardin 60m²</figcaption>
+                </figure>
+                <figure style="width:100%; display:block;">
+                    <div style="display: flex; flex-direction: row; gap: 1rem; width:100%;">
+                        <img src="https://manzvador.github.io/assets/img/1579d2cfc12470f2acf3cd26e8a59d70e3ce2578.jpg" 
+                             alt="Cuisine pro 1" 
+                             loading="lazy"
+                             style="width:50%; height:auto; object-fit:cover;"
+                             class="rounded-lg shadow-xl">
+                        <img src="https://manzvador.github.io/assets/img/de9de5ff3d5e8ce8b874d51d79c1c49c41b01e92.jpg" 
+                             alt="Cuisine pro 2" 
+                             loading="lazy"
+                             style="width:50%; height:auto; object-fit:cover;"
+                             class="rounded-lg shadow-xl">
+                    </div>
+                    <figcaption>Cuisine inox équipée</figcaption>
                 </figure>
             </div>
         </div>
@@ -478,7 +602,16 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="font-medium">Email</h4>
-                                    <p class="text-gray-600">aubergedelasaine@hotmail.com</p>
+                                    <p class="text-gray-600"><a href="mailto:aubergedelasaine@hotmail.com" class="hover:underline">aubergedelasaine@hotmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#8B0000] mt-1">
+                                    <i class="fab fa-facebook-square text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium">Facebook</h4>
+                                    <p class="text-gray-600"><a href="https://www.facebook.com/profile.php?id=100063590770224#" target="_blank" rel="noopener">Auberge de la Saine</a></p>
                                 </div>
                             </div>
                         </div>
@@ -493,6 +626,11 @@
                                 loading="lazy" 
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
+                    <div class="mt-4">
+                        <a href="https://www.leboncoin.fr/ad/bureaux_commerces/2793225650" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-[#8B0000] text-white rounded hover:bg-[#6B0000] transition">
+                            <i class="fas fa-external-link-alt mr-2"></i>Voir l'annonce sur Leboncoin
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -506,35 +644,34 @@
                     <h3 class="text-xl font-bold mb-4">Auberge de la Saine</h3>
                     <p class="mb-4">Une affaire sérieuse avec chiffres vérifiés et dossier complet.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-gray-200 transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-white hover:text-gray-200 transition">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://www.facebook.com/profile.php?id=100063590770224#" class="text-white hover:text-blue-200 transition" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-square text-2xl"></i>
                         </a>
                     </div>
                 </div>
-                
                 <div>
                     <h4 class="font-semibold mb-4">LIENS UTILES</h4>
                     <ul class="space-y-2">
-                        <li><a href="#auberge" class="hover:text-gray-200 transition">L'établissement</a></li>
-                        <li><a href="#chiffres-cles" class="hover:text-gray-200 transition">Chiffres clés</a></li>
-                        <li><a href="#contact" class="hover:text-gray-200 transition">Contact</a></li>
+                        <li><a href="https://www.jura-foncine.com/" target="_blank" rel="noopener" class="hover:underline">Site de Foncine-le-Haut</a></li>
+                        <li><a href="https://www.jura-tourism.com/" target="_blank" rel="noopener" class="hover:underline">Office du tourisme du Jura</a></li>
                     </ul>
                 </div>
-                
                 <div>
-                    <h4 class="font-semibold mb-4">DOCUMENTS</h4>
+                    <h4 class="font-semibold mb-4">Coordonnées</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-gray-200 transition"><i class="fas fa-file-pdf mr-2"></i> Fiche descriptive</a></li>
-                        <li><a href="#" class="hover:text-gray-200 transition"><i class="fas fa-file-excel mr-2"></i> Comptes 3 ans</a></li>
+                        <li><a href="mailto:aubergedelasaine@hotmail.com" class="hover:underline">aubergedelasaine@hotmail.com</a></li>
+                        <li> +33 3 84 37 18 60</li>
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=100063590770224#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-blue-200">
+                                <i class="fab fa-facebook-square text-xl"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            
             <div class="border-t border-[#6B0000] mt-10 pt-6 text-center text-sm">
-                <p> 2023 Auberge de la Saine - Tous droits réservés</p>
+                <p> 2025 Auberge de la Saine - Tous droits réservés</p>
             </div>
         </div>
     </footer>

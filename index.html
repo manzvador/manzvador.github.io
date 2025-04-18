@@ -69,14 +69,20 @@
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             border-top: 4px solid var(--primary);
+            transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+            padding-top: 2.2rem;
         }
         .stat .big {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: var(--primary);
-            line-height: 1;
             display: block;
             margin-bottom: 0.5rem;
+        }
+        .stat:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(139,0,0,0.16), 0 1.5px 6px rgba(0,0,0,0.10);
+            z-index: 2;
         }
         .poi-grid {
             display: grid;
@@ -181,6 +187,10 @@
             .hero {
                 background-attachment: scroll;
             }
+        }
+        /* Soulignement lien Facebook coordonnées au survol */
+        .contact-coord a[href*="facebook"]:hover span, .contact-coord a[href*="facebook"]:hover {
+            text-decoration: underline !important;
         }
     </style>
 </head>
@@ -416,11 +426,16 @@
                 </div>
             </div>
             
-            <div class="mt-10 fade-in">
+            <div class="mt-10 fade-in flex flex-col md:flex-row gap-6 justify-center items-center">
                 <img src="https://manzvador.github.io/assets/img/transjubruno-ferrandez-1193x0.jpg" 
                      alt="Ski de fond" 
-                     class="rounded-lg shadow-xl w-full h-auto max-w-4xl mx-auto"
-                     loading="lazy">
+                     class="rounded-lg shadow-xl w-full md:w-1/3 h-auto max-w-xs mx-auto" loading="lazy">
+                <img src="https://manzvador.github.io/assets/img/rando.jpg" 
+                     alt="Randonnée Jura" 
+                     class="rounded-lg shadow-xl w-full md:w-1/3 h-auto max-w-xs mx-auto" loading="lazy">
+                <img src="https://manzvador.github.io/assets/img/vtt.jpg" 
+                     alt="VTT Jura" 
+                     class="rounded-lg shadow-xl w-full md:w-1/3 h-auto max-w-xs mx-auto" loading="lazy">
             </div>
         </div>
     </section>
@@ -569,11 +584,14 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="fade-in">
-                    <form action="mailto:contact@aubergedelasaine.com" method="post" enctype="text/plain">
-                        <input type="text" name="nom" placeholder="Votre nom" required>
-                        <input type="email" name="email" placeholder="Votre email" required>
-                        <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
-                        <button type="submit">Envoyer</button>
+                    <form action="https://formspree.io/f/myzeqlqg" method="POST" class="bg-white p-6 rounded-lg shadow-md">
+                        <label class="block mb-2">Votre email :
+                            <input type="email" name="email" required class="w-full border rounded p-2 mt-1 mb-4" placeholder="Votre email">
+                        </label>
+                        <label class="block mb-2">Votre message :
+                            <textarea name="message" required class="w-full border rounded p-2 mt-1 mb-4" placeholder="Votre message"></textarea>
+                        </label>
+                        <button type="submit" class="bg-[#8B0000] text-white px-6 py-2 rounded hover:bg-[#6B0000] transition">Envoyer</button>
                     </form>
                 </div>
                 
@@ -664,7 +682,7 @@
                 </div>
                 <div>
                     <h4 class="font-semibold mb-4">Coordonnées</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 contact-coord">
                         <li><a href="mailto:aubergedelasaine@hotmail.com" class="hover:underline">aubergedelasaine@hotmail.com</a></li>
                         <li> +33 3 84 37 18 60</li>
                         <li>

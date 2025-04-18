@@ -127,7 +127,7 @@
             background-color: white;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
         form input, form textarea {
             width: 100%;
@@ -534,7 +534,7 @@
             </div>
             
             <div class="border-t border-[#6B0000] mt-10 pt-6 text-center text-sm">
-                <p>© 2023 Auberge de la Saine - Tous droits réservés</p>
+                <p> 2023 Auberge de la Saine - Tous droits réservés</p>
             </div>
         </div>
     </footer>
@@ -619,25 +619,18 @@
         });
 
         // Lazy loading for images
-        if ('loading' in HTMLImageElement.prototype) {
-            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-            lazyImages.forEach(img => {
-                img.src = img.dataset.src;
-            });
-        } else {
+        if (!('loading' in HTMLImageElement.prototype)) {
             // Fallback for browsers that don't support lazy loading
             const lazyLoad = function() {
                 const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-                
                 lazyImages.forEach(img => {
-                    if (img.getBoundingClientRect().top < window.innerHeight + 100 && 
+                    if (img.dataset.src && img.getBoundingClientRect().top < window.innerHeight + 100 && 
                         img.getBoundingClientRect().bottom > -100 && 
                         img.src !== img.dataset.src) {
                         img.src = img.dataset.src;
                     }
                 });
             };
-            
             document.addEventListener('scroll', lazyLoad);
             window.addEventListener('resize', lazyLoad);
             window.addEventListener('orientationchange', lazyLoad);

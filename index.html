@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant à vendre Haut-Jura | Auberge de la Saine</title>
+    <meta name="description" content="Reprenez une auberge authentique et rentable au cœur du Parc du Haut-Jura : 268 M€ de retombées touristiques, exonération fiscale ZRR, proximité Genève-Lausanne.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #8B0000;
+            --secondary: #F5F1E8;
+            --wood: #D2B48C;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--secondary);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        .wood-divider {
+            height: 2px;
+            background-color: var(--wood);
+            margin: 2rem auto;
+            width: 100px;
+            opacity: 0.6;
+        }
+        .cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .cta:hover {
+            background-color: #6B0000;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary);
+        }
+        .stat .big {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .poi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .poi {
+            background-color: rgba(139, 0, 0, 0.1);
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .masonry {
+            columns: 3 250px;
+            gap: 1rem;
+        }
+        .masonry figure {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .masonry figure:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .masonry img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .masonry figcaption {
+            padding: 1rem;
+            background-color: white;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        #map {
+            height: 300px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        form input:focus, form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.2);
+        }
+        form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        form button:hover {
+            background-color: #6B0000;
+        }
+        .nav-active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-utensils text-xl text-[#8B0000] mr-2"></i>
+                        <span class="text-xl font-bold">Auberge de la Saine</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#auberge" class="nav-link text-gray-700 hover:text-[#8B0000] px-3 py-2 font-medium">L'établissement</a>
+                    <a href="#histoire" class="nav-link text-gray-700 hover:text-[#8B0000] px-3 py-2 font-medium">Histoire</a>
+                    <a href="#chiffres-cles" class="nav-link text-gray-700 hover:text-[#8B0000] px-3 py-2 font-medium">Chiffres clés</a>
+                    <a href="#territoire" class="nav-link text-gray-700 hover:text-[#8B0000] px-3 py-2 font-medium">Territoire</a>
+                    <a href="#contact" class="bg-[#8B0000] hover:bg-[#6B0000] text-white px-4 py-2 rounded-md font-medium transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-[#8B0000]">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-4 shadow-lg">
+            <a href="#auberge" class="block px-3 py-2 text-gray-700 hover:text-[#8B0000]">L'établissement</a>
+            <a href="#histoire" class="block px-3 py-2 text-gray-700 hover:text-[#8B0000]">Histoire</a>
+            <a href="#chiffres-cles" class="block px-3 py-2 text-gray-700 hover:text-[#8B0000]">Chiffres clés</a>
+            <a href="#territoire" class="block px-3 py-2 text-gray-700 hover:text-[#8B0000]">Territoire</a>
+            <a href="#contact" class="block px-3 py-2 bg-[#8B0000] text-white rounded-md text-center mt-2">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero flex items-center justify-center text-center text-white">
+        <div class="max-w-4xl mx-auto px-4 fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Auberge de la Saine</h1>
+            <p class="text-xl md:text-2xl mb-8">Votre futur restaurant au cœur du Haut-Jura – +9,3 M de nuitées touristiques / an dans le département</p>
+            <a href="#contact" class="cta">Recevoir le dossier complet</a>
+        </div>
+    </section>
+
+    <!-- Auberge Section -->
+    <section id="auberge" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-4">L'établissement</h2>
+                <div class="wood-divider"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 fade-in">
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
+                            <span>70 couverts en salle</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
+                            <span>24 couverts terrasse couverte</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
+                            <span>Licence IV</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
+                            <span>Cuisine pro inox rénovée 2019</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-[#8B0000] mt-1 mr-3"></i>
+                            <span>Note moyenne : 4,5 / 5 (Google & TripAdvisor)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 fade-in">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Salle de restaurant" 
+                         class="rounded-lg shadow-xl w-full h-auto"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Histoire Section -->
+    <section id="histoire" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Depuis 1850, une maison d'accueil</h2>
+                <div class="wood-divider"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <p class="text-lg">
+                    Ancienne ferme jurassienne devenue auberge en 2000, entièrement réhabilitée en 2017. Atmosphère bois & pierre, esprit montagne.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chiffres Clés Section -->
+    <section id="chiffres-cles" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Chiffres clés</h2>
+                <div class="wood-divider"></div>
+            </div>
+            
+            <div class="stats-grid fade-in">
+                <div class="stat">
+                    <span class="big">268 M€</span>
+                    Retombées touristiques annuelles<br>dans le Jura
+                </div>
+                <div class="stat">
+                    <span class="big">+40 %</span>
+                    Progression CA HCR T4 2023<br>(vs 2022)
+                </div>
+                <div class="stat">
+                    <span class="big">648</span>
+                    Établissements CHR dans le Jura<br>(offre maîtrisée)
+                </div>
+                <div class="stat">
+                    <span class="big">1 107</span>
+                    Habitants Foncine-le-Haut<br>+4,9 % en 6 ans
+                </div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto mt-10 fade-in">
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-[#8B0000] mt-1 mr-3"></i>
+                        <span>Zone de Revitalisation Rurale : <strong>exonération totale d'impôt 5 ans</strong> pour une reprise.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-[#8B0000] mt-1 mr-3"></i>
+                        <span>Commune classée touristique : ouvertures 7j/7 y compris dimanches & jours fériés.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-info-circle text-[#8B0000] mt-1 mr-3"></i>
+                        <span>Région BFC : prêt à taux 0 jusqu'à <strong>80 000 €</strong> pour la reprise d'hôtels-restaurants.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Territoire Section -->
+    <section id="territoire" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Foncine-le-Haut & Haut-Jura</h2>
+                <div class="wood-divider"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto text-center mb-10 fade-in">
+                <p class="text-lg">
+                    Parc Naturel Régional du Haut-Jura • Station nordique (906-1052 m) • Randonnée, VTT, ski, canoë.<br>
+                    77 km de Genève – 82 km de Lausanne : clientèle transfrontalière en hausse de <strong>+7 %</strong> en 2023.
+                </p>
+            </div>
+            
+            <div class="poi-grid max-w-4xl mx-auto fade-in">
+                <div class="poi">Gorges de la Langouette – 4 km</div>
+                <div class="poi">Cascades du Hérisson – 18 km</div>
+                <div class="poi">UNESCO Grande Saline – 28 km</div>
+                <div class="poi">Domaine des Rousses – 34 km</div>
+            </div>
+            
+            <div class="mt-10 fade-in">
+                <img src="https://cdn-lfs-us-1.hf.co/repos/30/e1/30e1e749d87883f65af344a33f7ebad86eafddff9dd1640a2b6360f21f4b447f/2d215bb762abe52e8ab9948d5a6f8553ae2189aa3f05efb3b403316a85638d0a?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27transjubruno-ferrandez-1193x0.jpg%3B+filename%3D%22transjubruno-ferrandez-1193x0.jpg%22%3B&response-content-type=image%2Fjpeg&Expires=1744981198&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0NDk4MTE5OH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy11cy0xLmhmLmNvL3JlcG9zLzMwL2UxLzMwZTFlNzQ5ZDg3ODgzZjY1YWYzNDRhMzNmN2ViYWQ4NmVhZmRkZmY5ZGQxNjQwYTJiNjM2MGYyMWY0YjQ0N2YvMmQyMTViYjc2MmFiZTUyZThhYjk5NDhkNWE2Zjg1NTNhZTIxODlhYTNmMDVlZmIzYjQwMzMxNmE4NTYzOGQwYT9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPSomcmVzcG9uc2UtY29udGVudC10eXBlPSoifV19&Signature=c1F5YIHveqDzVFan5D06GUpiZ7HYVjMoGygVWN3XuymGMmp97mDaudPQAw39JKsNFLSvNvL8c%7EmvvpgFf7vbv25I3RhsBys%7EsAL86cpB9l19q7Gm8uLlF97lfME9yNZXHR3w3jSHyFM8vQgKr2QOB%7EPB5ezIRWJNMOdPJZ3xGxzFdDfAhlA3Kb0ii4tSPu7pip0WWsEoZc9itVze3RDBVzWwcDZRmD1ZhyFVbisPa5HO6FfVBB8qP4EgVyr0CjeIIS-Oz4uA%7E41q6PxFQ8bTXUcCRMmNdbblunYM8YWjaJtoooNA1sevsu755-mQh9C1xFK%7EwjrfjOPn0YcJwBBm6w__&Key-Pair-Id=K24J24Z295AEI9&auto=format&fit=crop&w=1476&q=80" 
+                     alt="Ski de fond" 
+                     class="rounded-lg shadow-xl w-full h-auto max-w-4xl mx-auto"
+                     loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Investir Section -->
+    <section id="investir" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Pourquoi investir ?</h2>
+                <div class="wood-divider"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto fade-in">
+                <ul class="space-y-4 text-lg mb-10">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
+                        <span>Outil prêt à exploiter, aucune dette.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
+                        <span>Clientèle 4 saisons : ski nordique l'hiver, outdoor l'été.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
+                        <span>Exonération fiscale ZRR : 0 % IS pendant 5 ans.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
+                        <span>Aide Région BFC : prêt 0 % → 80 k€ + prime PCRTF 3 k€.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-[#8B0000] mt-1 mr-3"></i>
+                        <span>Potentiel croissance : hébergement (gîtes), événements & groupes (capacité rare localement).</span>
+                    </li>
+                </ul>
+                
+                <div class="text-center">
+                    <a href="#contact" class="cta">Planifier une visite</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie Section -->
+    <section id="galerie" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Galerie</h2>
+                <div class="wood-divider"></div>
+            </div>
+            
+            <div class="masonry fade-in">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Cuisine pro" 
+                         loading="lazy">
+                    <figcaption>Cuisine inox équipée</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                         alt="Terrasse" 
+                         loading="lazy">
+                    <figcaption>Terrasse couverte 24 couverts</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a8e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" 
+                         alt="Spécialité jurassienne" 
+                         loading="lazy">
+                    <figcaption>Spécialité morilles & vin jaune</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Salle de restaurant" 
+                         loading="lazy">
+                    <figcaption>Salle principale 70 couverts</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold mb-4">Contact</h2>
+                <div class="wood-divider"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <form action="mailto:contact@aubergedelasaine.com" method="post" enctype="text/plain">
+                        <input type="text" name="nom" placeholder="Votre nom" required>
+                        <input type="email" name="email" placeholder="Votre email" required>
+                        <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+                        <button type="submit">Envoyer</button>
+                    </form>
+                </div>
+                
+                <div class="space-y-6 fade-in">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4">Coordonnées</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#8B0000] mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium">Adresse</h4>
+                                    <p class="text-gray-600">Auberge de la Saine<br>81 Grande Rue<br>39460 Foncine-le-Haut, France</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#8B0000] mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium">Téléphone</h4>
+                                    <p class="text-gray-600">+33 3 84 37 18 60</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#8B0000] mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium">Email</h4>
+                                    <p class="text-gray-600">aubergedelasaine@hotmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d484.0714354211292!2d6.074854627143772!3d46.65991227727995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478cffd9503f5327%3A0xe692b83ee2f7fa9c!2sAuberge%20de%20la%20Saine!5e0!3m2!1sfr!2sch!4v1744975752946!5m2!1sfr!2sch" 
+                                width="100%" 
+                                height="300" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#8B0000] text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Auberge de la Saine</h3>
+                    <p class="mb-4">Une affaire sérieuse avec chiffres vérifiés et dossier complet.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-gray-200 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-gray-200 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">LIENS UTILES</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#auberge" class="hover:text-gray-200 transition">L'établissement</a></li>
+                        <li><a href="#chiffres-cles" class="hover:text-gray-200 transition">Chiffres clés</a></li>
+                        <li><a href="#contact" class="hover:text-gray-200 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">DOCUMENTS</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gray-200 transition"><i class="fas fa-file-pdf mr-2"></i> Fiche descriptive</a></li>
+                        <li><a href="#" class="hover:text-gray-200 transition"><i class="fas fa-file-excel mr-2"></i> Comptes 3 ans</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-[#6B0000] mt-10 pt-6 text-center text-sm">
+                <p>© 2023 Auberge de la Saine - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating action button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#contact" class="bg-[#8B0000] hover:bg-[#6B0000] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition duration-300">
+            <i class="fas fa-envelope text-xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Scroll animation
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Scroll spy for navigation
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('nav-active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('nav-active');
+                        }
+                    });
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', () => {
+            checkVisibility();
+            updateActiveNav();
+        });
+        window.addEventListener('load', () => {
+            checkVisibility();
+            updateActiveNav();
+        });
+
+        // Lazy loading for images
+        if ('loading' in HTMLImageElement.prototype) {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            // Fallback for browsers that don't support lazy loading
+            const lazyLoad = function() {
+                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+                
+                lazyImages.forEach(img => {
+                    if (img.getBoundingClientRect().top < window.innerHeight + 100 && 
+                        img.getBoundingClientRect().bottom > -100 && 
+                        img.src !== img.dataset.src) {
+                        img.src = img.dataset.src;
+                    }
+                });
+            };
+            
+            document.addEventListener('scroll', lazyLoad);
+            window.addEventListener('resize', lazyLoad);
+            window.addEventListener('orientationchange', lazyLoad);
+        }
+    </script>
+</body>
+</html>

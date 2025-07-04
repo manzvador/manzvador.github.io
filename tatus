@@ -1,0 +1,88 @@
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 4194635..e268867 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -210,46 +210,45 @@[m
+             text-decoration: underline !important;[m
+         }[m
+     </style>[m
+[31m-    <script type="application/ld+json">[m
+[32m+[m[32m<script type="application/ld+json">[m
+[32m+[m[32m{[m
+[32m+[m[32m  "@context": "https://schema.org",[m
+[32m+[m[32m  "@type": "Restaurant",[m
+[32m+[m[32m  "name": "Auberge de la Saine",[m
+[32m+[m[32m  "image": "https://manzvador.github.io/assets/img/bfbafdf6fecb5e540685689ee4a72e5d74e0dddf.jpg",[m
+[32m+[m[32m  "description": "Fonds de commerce bar-restaurant licence IV à Foncine‑le‑Haut : 70 couverts en salle, 20 en terrasse, cuisine pro équipée, 2 appartements, jardin privatif. Opportunité 4 saisons au cœur du Haut-Jura.",[m
+[32m+[m[32m  "url": "https://manzvador.github.io/",[m
+[32m+[m[32m  "telephone": "+33 3 84 37 18 60",[m
+[32m+[m[32m  "address": {[m
+[32m+[m[32m    "@type": "PostalAddress",[m
+[32m+[m[32m    "streetAddress": "81 Grande Rue",[m
+[32m+[m[32m    "addressLocality": "Foncine-le-Haut",[m
+[32m+[m[32m    "postalCode": "39460",[m
+[32m+[m[32m    "addressCountry": "FR"[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "geo": {[m
+[32m+[m[32m    "@type": "GeoCoordinates",[m
+[32m+[m[32m    "latitude": 46.65991227727995,[m
+[32m+[m[32m    "longitude": 6.074854627143772[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "servesCuisine": [[m
+[32m+[m[32m    "Cuisine jurassienne",[m
+[32m+[m[32m    "Spécialités locales"[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "priceRange": "€€",[m
+[32m+[m[32m  "openingHoursSpecification": [[m
+     {[m
+[31m-      "@context": "https://schema.org",[m
+[31m-      "@type": "Restaurant",[m
+[31m-      "name": "Auberge de la Saine",[m
+[31m-      "image": [[m
+[31m-        "https://manzvador.github.io/assets/img/SallePrincipale.jpg"[m
+[32m+[m[32m      "@type": "OpeningHoursSpecification",[m
+[32m+[m[32m      "dayOfWeek": [[m
+[32m+[m[32m        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"[m
+       ],[m
+[31m-      "address": {[m
+[31m-        "@type": "PostalAddress",[m
+[31m-        "streetAddress": "81 Grande Rue",[m
+[31m-        "addressLocality": "Foncine-le-Haut",[m
+[31m-        "postalCode": "39460",[m
+[31m-        "addressCountry": "FR"[m
+[31m-      },[m
+[31m-      "telephone": "+33 3 84 37 18 60",[m
+[31m-      "priceRange": "160000 EUR",[m
+[31m-      "description": "À vendre : fonds de commerce restaurant-bar licence IV à Foncine-le-Haut (Haut-Jura). 300 m², 2 appartements, terrasse, jardin, fort potentiel touristique.",[m
+[31m-      "url": "https://manzvador.github.io/",[m
+[31m-      "servesCuisine": "Cuisine traditionnelle, spécialités régionales",[m
+[31m-      "amenityFeature": [[m
+[31m-        { "@type": "LocationFeatureSpecification", "name": "Terrasse", "value": true },[m
+[31m-        { "@type": "LocationFeatureSpecification", "name": "Appartements inclus", "value": true },[m
+[31m-        { "@type": "LocationFeatureSpecification", "name": "Cave à vin", "value": true },[m
+[31m-        { "@type": "LocationFeatureSpecification", "name": "Jardin privatif", "value": true }[m
+[31m-      ],[m
+[31m-      "additionalProperty": [[m
+[31m-        { "@type": "PropertyValue", "name": "Surface", "value": "300 m²" },[m
+[31m-        { "@type": "PropertyValue", "name": "Licence IV", "value": "Oui" }[m
+[31m-      ],[m
+[31m-      "potentialAction": {[m
+[31m-        "@type": "BuyAction",[m
+[31m-        "target": {[m
+[31m-          "@type": "EntryPoint",[m
+[31m-          "urlTemplate": "https://www.leboncoin.fr/ad/bureaux_commerces/2793225650"[m
+[31m-        }[m
+[31m-      }[m
+[32m+[m[32m      "opens": "07:00",[m
+[32m+[m[32m      "closes": "23:00"[m
+     }[m
+[31m-    </script>[m
+[31m-    <meta name="google-site-verification" content="5zqfsWwKlqNhZg-uCj20HCnuC9SrWeDiwbDdl6x8oyQ" />[m
+[32m+[m[32m  ][m
+[32m+[m[32m}[m
+[32m+[m[32m</script>[m
+[32m+[m[32m<meta name="google-site-verification" content="5zqfsWwKlqNhZg-uCj20HCnuC9SrWeDiwbDdl6x8oyQ" />[m
+ </head>[m
+ <body>[m
+     <!-- Navigation -->[m
